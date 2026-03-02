@@ -1,0 +1,415 @@
+    /* ============================
+    ตั้งค่าพื้นฐาน (Base Styles)
+    ============================ */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Sarabun', sans-serif;
+    }
+body {
+    background: linear-gradient(-45deg, #f3e7e9, #e3eeff, #e0c3fc, #8ec5fc);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ต้องก๊อปปี้ส่วนนี้ไปต่อท้ายไฟล์ CSS ด้วย เพื่อให้มันขยับได้ */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+    /* ============================
+    ส่วนหัวและเมนู (Header & Nav)
+    ============================ */
+    header {
+        background-color: #2c3e50;
+        color: white;
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: sticky; /* ทำให้เมนูติดด้านบนเวลาเลื่อนลง */
+        top: 0;
+        z-index: 1000;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #ecf0f1;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-left: 20px;
+    }
+
+    .nav-links a {
+        color: #bdc3c7;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s;
+        padding: 8px 15px;
+        border-radius: 4px;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+        color: #ffffff;
+        background-color: #34495e;
+    }
+
+    /* ============================
+    ส่วนเนื้อหา (Content Container)
+    ============================ */
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 40px auto;
+        flex: 1;
+    }
+
+    h1 {
+        color: #2c3e50;
+        border-bottom: 3px solid #3498db;
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
+
+    /* ============================
+    ส่วนตกแต่งหน้าทักษะ (Skills Styling)
+    ============================ */
+
+    /* จัดโครงสร้าง Grid: แบ่งคอลัมน์อัตโนมัติ */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    /* การ์ดทักษะ */
+    .skill-card {
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-top: 4px solid #3498db; /* แถบสีด้านบน */
+    }
+
+    /* เอฟเฟกต์ตอนเอาเมาส์ไปชี้การ์ด */
+    .skill-card:hover {
+        transform: translateY(-8px); /* ลอยขึ้น */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        border-top-color: #2ecc71; /* เปลี่ยนสีแถบเป็นเขียว */
+    }
+
+    /* หัวข้อในการ์ด */
+    .skill-card h3 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+    }
+
+    /* ไอคอนหัวข้อ */
+    .skill-card h3 i {
+        color: #3498db;
+        margin-right: 10px;
+        font-size: 1.5rem;
+    }
+
+    /* รายการทักษะ (List) */
+    .skill-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .skill-list li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        color: #555;
+        font-weight: 500;
+    }
+
+    /* ไอคอนหน้าชื่อทักษะ */
+    .skill-list li i {
+        color: #95a5a6;
+        margin-right: 12px;
+        width: 25px;
+        text-align: center;
+        transition: color 0.3s;
+    }
+
+    /* เปลี่ยนสีไอคอนย่อยเมื่อเมาส์ชี้การ์ดใหญ่ */
+    .skill-card:hover .skill-list li i {
+        color: #2ecc71;
+    }
+
+    /* ============================
+    ส่วนตกแต่งหน้าการบ้าน (Homework Page)
+    ============================ */
+
+    /* Grid สำหรับการบ้าน (คล้าย Skills แต่ปรับให้เหมาะกับการ์ดรูปภาพ) */
+    .homework-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    /* ตัวการ์ดโปรเจกต์ */
+    .project-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden; /* ตัดมุมรูปภาพที่เกินออกมา */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    /* ส่วนรูปภาพปก */
+    .card-img-holder {
+        width: 100%;
+        height: 180px;
+        overflow: hidden;
+    }
+
+    .card-img-holder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* ให้รูปเต็มกรอบโดยไม่เสียสัดส่วน */
+        transition: transform 0.5s;
+    }
+
+    .project-card:hover .card-img-holder img {
+        transform: scale(1.1); /* ซูมรูปเมื่อเอาเมาส์ชี้ */
+    }
+
+    /* ส่วนเนื้อหาในการ์ด */
+    .card-content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1; /* ให้ยืดเต็มพื้นที่ */
+    }
+
+    .card-content h3 {
+        margin: 10px 0;
+        font-size: 1.2rem;
+        color: #2c3e50;
+    }
+
+    .card-content p {
+        font-size: 0.95rem;
+        color: #666;
+        margin-bottom: 20px;
+        flex-grow: 1; /* ดันปุ่มลงไปล่างสุดเสมอ */
+    }
+
+    /* ป้ายกำกับ (Tags) */
+    .project-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        font-size: 0.75rem;
+        padding: 3px 10px;
+        border-radius: 15px;
+        background: #ecf0f1;
+        color: #7f8c8d;
+        font-weight: 600;
+    }
+
+    /* สีเฉพาะของแต่ละ Tag (Optional) */
+    .tag-java { background: #ffeebb; color: #d35400; }
+    .tag-php { background: #d6eaf8; color: #2980b9; }
+    .tag-sql { background: #fadbd8; color: #c0392b; }
+    .tag-ai { background: #e8daef; color: #8e44ad; }
+
+    /* ปุ่มกดดูงาน */
+    .btn-view {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        text-align: center;
+        padding: 8px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: background 0.3s;
+        align-self: flex-start; /* จัดปุ่มชิดซ้าย */
+    }
+
+    .btn-view:hover {
+        background-color: #2980b9;
+    }
+
+    .btn-view i {
+        margin-left: 5px;
+    }
+
+    /* ============================
+    ส่วนตกแต่งหน้ากิจกรรม (Activities Page)
+    ============================ */
+    .activity-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .activity-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .activity-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .activity-card .card-img-holder {
+        width: 100%;
+        height: 180px;
+        overflow: hidden;
+    }
+
+    .activity-card .card-img-holder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+    }
+
+    .activity-card:hover .card-img-holder img {
+        transform: scale(1.1);
+    }
+
+    .activity-card .card-content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .activity-card h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1rem;
+        color: #2c3e50;
+    }
+
+    .activity-date {
+        font-size: 0.9rem;
+        color: #e67e22; 
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .activity-card p {
+        font-size: 0.95rem;
+        color: #666;
+        margin-bottom: 0;
+    }
+
+    /* ============================
+    ส่วนท้าย (Footer)
+    ============================ */
+    footer {
+        background-color: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: auto;
+    }
+
+    /* =========================================
+    Mobile Responsive (หน้าจอมือถือ)
+    ========================================= */
+    @media (max-width: 768px) {
+        
+        /* 1. เพิ่มพื้นที่ว่างด้านข้างของเนื้อหา (ไม่ให้ชิดขอบจอเกินไป) */
+        .container {
+            padding: 20px 15px; /* บน-ล่าง 20px, ซ้าย-ขวา 15px */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* 2. ปรับขนาดตัวอักษรให้อ่านง่ายขึ้นบนมือถือ */
+        h1 {
+            font-size: 28px; /* ปรับขนาดหัวข้อ */
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6; /* เพิ่มความห่างระหว่างบรรทัดให้อ่านง่าย */
+            text-align: left; /* หรือเปลี่ยนเป็น justify หากต้องการให้ข้อความเรียงเต็มบรรทัด */
+        }
+
+        /* 3. ปรับรูปโปรไฟล์ (คุณต้องใส่ class ให้รูปใน HTML ก่อน เช่น class="profile-img") */
+        /* ตัวอย่างนี้จะจัดรูปให้มาอยู่กึ่งกลางเมื่อดูบนมือถือ */
+        .profile-img { 
+            display: block;
+            margin: 30px auto 10px auto; /* จัดกึ่งกลาง (ซ้าย-ขวาเป็น auto) */
+            width: 150px; /* ปรับขนาดรูปให้เหมาะสม */
+            height: 150px;
+            border-radius: 10px; /* หรือ 50% ถ้าอยากให้เป็นวงกลม */
+            object-fit: cover;
+        }
+
+        /* 4. ปรับเมนู Navigation (สมมติว่าโครงสร้างเดิมเป็นแนวนอน) */
+        nav {
+            flex-direction: column; /* เปลี่ยนให้เมนูเรียงลงมาในแนวตั้ง */
+            align-items: center;
+            padding: 15px;
+        }
+
+        .nav-links {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap; /* เผื่อเมนูยาวเกินจอให้ปัดลงบรรทัดใหม่ */
+            justify-content: center;
+            gap: 15px;
+            padding: 0;
+        }
+
+        .skills-grid, .homework-grid, .activity-grid {
+            grid-template-columns: 1fr; /* บนมือถือแสดงแถวเดียว */
+        }
+    }
